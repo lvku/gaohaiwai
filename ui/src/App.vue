@@ -1,18 +1,10 @@
 <template>
   <v-app>
-    <v-navigation-drawer
-      fixed
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      v-model="drawer"
-      app
-    >
+    <v-navigation-drawer app fixed :mini-variant="miniVariant"
+                         :clipped="clipped" v-model="drawer" >
       <v-list>
-        <v-list-tile
-          value="true"
-          v-for="(item, i) in items"
-          :key="i"
-        >
+        <v-list-tile value="true" v-for="(item, i) in items" :key="i"
+                     @click="clickMenu(item.path)">
           <v-list-tile-action>
             <v-icon v-html="item.icon"></v-icon>
           </v-list-tile-action>
@@ -31,15 +23,7 @@
       <v-container fluid>
         <v-slide-y-transition mode="out-in">
           <v-layout column align-center>
-            <img src="/public/v.png" alt="Vuetify.js" class="mb-5" />
-            <blockquote>
-              &#8220;First, solve the problem. Then, write the code.&#8221;
-              <footer>
-                <small>
-                  <em>&mdash;John Johnson</em>
-                </small>
-              </footer>
-            </blockquote>
+            <router-view></router-view>
           </v-layout>
         </v-slide-y-transition>
       </v-container>
@@ -51,18 +35,25 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        clipped: true,
-        drawer: false,
-        fixed: true,
-        items: [
-          { icon: 'bubble_chart', title: 'Inspire' }
-        ],
-        miniVariant: false,
-        title: 'Vuetify.js'
-      }
+export default {
+  data () {
+    return {
+      clipped: true,
+      drawer: false,
+      fixed: true,
+      items: [
+        { icon: 'bubble_chart', title: 'Facebook', path: 'facebook' },
+        { icon: 'bubble_chart', title: 'Google', path: 'google' }
+      ],
+      miniVariant: false,
+      title: '告海外 -- 海外广告管理平台'
+    }
+  },
+  methods: {
+    clickMenu(path) {
+      this.$router.push(path);
+      console.log('xxxxx');
     }
   }
+}
 </script>
