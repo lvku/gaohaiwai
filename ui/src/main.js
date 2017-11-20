@@ -3,6 +3,8 @@ import App from './App.vue'
 import Vuetify from 'vuetify'
 import VueRouter from 'vue-router'
 import Google from './Google.vue'
+import GoogleNewCampaign from './google/NewCampaign.vue'
+
 import Facebook from './Facebook.vue'
 
 
@@ -16,8 +18,12 @@ const router = new VueRouter({
     {
       path: '/', component: App,
       children: [{
-          path: 'google',
-          component: Google
+        path: 'google',
+        component: Google,
+        children: [{
+          path: 'new_campaign',
+          component: GoogleNewCampaign
+        }]
       },{
         path: 'facebook',
         component: Facebook

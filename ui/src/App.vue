@@ -42,8 +42,8 @@ export default {
       drawer: false,
       fixed: true,
       items: [
-        { icon: 'bubble_chart', title: 'Facebook', path: 'facebook' },
-        { icon: 'bubble_chart', title: 'Google', path: 'google' }
+        { icon: 'bubble_chart', title: 'Facebook', path: '/facebook' },
+        { icon: 'bubble_chart', title: 'Google', path: '/google' }
       ],
       miniVariant: false,
       title: '告海外 -- 海外广告管理平台'
@@ -52,7 +52,6 @@ export default {
   methods: {
     clickMenu(path) {
       this.$router.push(path);
-      console.log('xxxxx');
     }
   }
 }
